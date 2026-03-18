@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.LinkedHashSet;
 
 public class Main {
 
@@ -6,32 +6,23 @@ public class Main {
 
         System.out.println("=== Train Consist Management App ===");
 
-        // Create ArrayList for passenger bogies
-        ArrayList<String> passengerBogies = new ArrayList<>();
+        // LinkedHashSet for Ordered + Unique Train Formation
+        LinkedHashSet<String> trainFormation = new LinkedHashSet<>();
 
-        // Add passenger bogies
-        passengerBogies.add("Sleeper");
-        passengerBogies.add("AC Chair");
-        passengerBogies.add("First Class");
+        // ADD (Attach Bogies)
+        trainFormation.add("Engine");
+        trainFormation.add("Sleeper");
+        trainFormation.add("Cargo");
+        trainFormation.add("Guard");
 
-        // Display bogies after insertion
-        System.out.println("Passenger Bogies after adding:");
-        System.out.println(passengerBogies);
+        // Attempt Duplicate
+        System.out.println("\nAttempting to add duplicate 'Sleeper'...");
+        trainFormation.add("Sleeper"); // will be ignored
 
-        // Remove one bogie (AC Chair)
-        passengerBogies.remove("AC Chair");
-        System.out.println("After removing AC Chair:");
-        System.out.println(passengerBogies);
+        // DISPLAY FINAL FORMATION
+        System.out.println("\nFinal Train Formation (Order Preserved, No Duplicates):");
+        System.out.println(trainFormation);
 
-        // Check if Sleeper exists
-        if (passengerBogies.contains("Sleeper")) {
-            System.out.println("Sleeper bogie exists in the train.");
-        } else {
-            System.out.println("Sleeper bogie not found.");
-        }
-
-        // Final list state
-        System.out.println("Final Passenger Bogie List:");
-        System.out.println(passengerBogies);
+        System.out.println("\nSystem ready for further operations...");
     }
 }
